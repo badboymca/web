@@ -1,0 +1,36 @@
+<!--followimg commands-->
+step1:open vscode 
+step2:download this all file ex10son(HTML
+snippets, Live server, ES lint, Reactjs code snippets, Prettier - Code formatter,
+ES7+ React/Redux/React-Native snippets)
+step3:downlaod node js your computer or laptop
+step4:now open vscode termianl type the command node(welcome show only install process done otherwise reainstall node software   
+---------------------------------------------------------------------------------------------------------------------
+(copy paste only)note:line by line executing after using next cmd 
+
+npm install -g npm
+mkdir ReactProjects
+cd ReactProjects
+npx create-react-app samplereact
+cd samplereact
+npm start
+---------------------------------------------------------------------------------------------------------------------
+now openfolder vscode
+then you go to select reactproject and you click the folder src
+now this file open vscode left side click App.js
+then you remove the all code
+now paste this code and save 
+
+import React,{Component} from 'react';
+class App extends Component{
+render(){
+return(
+<div>
+<h1>Welcome </h1>
+<h2> To techno world!!!</h2>
+</div>
+);
+}}
+export default App;
+
+open browser thats all 
