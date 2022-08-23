@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <title>Registration Form Example</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        div {
+            background-image: linear-gradient(145deg, #F1F645, #33FFCB, #45BEF6);
+            width: 45%;
+            justify-content: center;
+            display: flex;
+            margin: auto;
+        }
+
+        input {
+            height: 20px;
+            flex: 0 0 200px;
+            margin-left: 60px;
+        }
+
+        input[type="tel"] {
+            margin-left: 5;
+        }
+
+        select {
+            margin-left: 13px;
+        }
+
+        input[type="submit"] {
+            margin-left: 120;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+
+        input[type="reset"] {
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+    </style>
+    <script>
+        function validate() {
+            var n = document.forms["myform"]["name"].value;
+            var email = document.forms["myform"]["email"].value;
+            var i = email.indexOf("@");
+            var j = email.lastIndexOf(".");
+            if (i < 1 || j < i) {
+                alert("Invalid email ID");
+                e.focus();
+            }
+            localStorage.setItem("name", n);
+            window.open('welcome.html');
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <form id="myform" method="get" onsubmit=validate()>
+            <center>
+                <h3>Register Form</h3>
+            </center>
+            <label>Name:</label>
+            <input type="text" name="name" required><br><br>
+            <label>Email:</label>
+            <input type="email" name="email" required><br><br>
+            <label>Gender:</label>
+            <input type="radio" value="male" name="g1">Male
+            <input type="radio" value="female" name="g1">Female
+            <input type="radio" value="others" name="g1">Transgender
+            <br><br>
+            <label>D.O.B:</label>
+            <input type="date" name="dob" required><br><br>
+            <label>Phone number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{10}" required><br><br>
+            <label>Qualification:</label>
+            <select>
+                <option>SSLC</option>
+                <option>HSC</option>
+                <option>UG</option>
+                <option>PG</option>
+            </select>
+            <br><br>
+            <label>Address:</label><br><br>
+            <textarea rows="5" cols="30"></textarea><br><br>
+            <input type="submit">
+            <input type="reset">
+        </form>
+    </div>
+</body>
+
+</html>
