@@ -1,0 +1,70 @@
+NOTE:OPEN YOUR PC OR LAPTOP (file explorer)
+STEP1:Create A NEW folder that folder name is(fetch)  
+STEP2:next,you open vs code the 
+STEP3:NOW you go to click (file) and select (new text file)
+STEP4:copy the below html coding finaly you save index.html 
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON Test</title>
+</head>
+
+<body>
+    <div id="myData"></div>
+    <script>
+        fetch('one.json')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                appendData(data);
+            })
+            .catch(function(err) { 
+                console.log('error: ' + err);
+            });
+
+
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Name: ' + data[i].Name + ' ' + data[i].dept;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
+</body>
+
+</html>
+-----------------------------------------------------------------------------------------------------------------
+STEP3:NOW you go to click (file) and select (new text file)
+STEP4:copy the below json coding AND PASTE ON YOUR VSCODE finaly you save this file (one.json)
+
+[{
+        "regno": "1",
+        "Name": "ANTONY",
+        "dept": "MCA"
+    },
+    {
+        "regno": "2",
+        "Name": "BALAJI",
+        "dept": "MCA"
+    },
+    {
+        "regno": "3",
+        "Name": "SNAKE RAJ",
+        "dept": "MCA"
+    }
+]
+
+STEP5:NOW you go to (file explorer) SELECT 2 FILES (index.html) and (one.json) AND MOVE TO (fetch folder)
+STEP6:last step is open vs code and (click file) then you select (open folder)
+STEP7:NOW you can select (fetch) FOLDER you can see VSCODE left side (index.html)click,after that using keyboard Alt+L,Alt+O 
+-------------------------INCASE NOT WORKING USING THIS PORT-----------------------------------------------------------------------------
+http://127.0.0.1:5500/index.html
