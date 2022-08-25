@@ -1,0 +1,44 @@
+<!-- GO TO PASTE THIS CODE(APP.JS)-->
+
+import './App.css';
+function call(){
+var name=document.getElementById("uname");
+var pswd=document.getElementById("psw");
+alert("USERNAME="+name.value+"\nPassword="+pswd.value);
+}
+function App() {
+return (
+<body>
+<div>
+<form>
+<center><h3>Login</h3></center>
+<label>Username:</label>
+<input type="text" id="uname"></input><br/><br/>
+<label>Password:</label>
+<input type="password" id="psw"></input><br/><br/>
+<center><input type="Submit" value="submit" onClick={call}/></center>
+</form>
+</div>
+</body>
+);
+}
+export default App;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- GO TO PASTE THIS CODE(APP.CSS)-->
+
+body{
+  margin-top:100px;
+  display:flex;
+  justify-content:center;
+  }
+  div{
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  }
+  form{
+  padding:30px;
+  background-image: linear-gradient(145deg,#F1F645 , #33FFCB,#45BEF6);
+  }
