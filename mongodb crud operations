@@ -1,0 +1,30 @@
+--------------------------------------------MongoDB---------------------------------------------------------------
+open cmd prompt type> mongo
+
+1. CREATE THE DATABASE:
+
+> use student
+
+2. INSERT THE COLLECTIONS INTO THE DATABASE:
+
+> db.student.insert({"name":"gayathri","rollno":001,"dept_name":"Maths","college":"holy crosscollege","extra_curriclr":"book reading"});
+> db.student.insert({"name":"malini","roll no":002,"dept_name":"computerscience","college":"HCC college","extra_curriclr":"dance"});
+> db.student.insert({"name":"Malathi","rollno":003,"dept_name":"MCA","college":"ABCcollege","extra_curriclr":"drawing"});
+
+3.READ COLLECTIONS FROM THE DATABASE:
+
+> db.student.find().pretty();
+> db.student.findOne({"name":"gayathri"});
+
+4. UPDATING THE COLLECTIONS INTO THE DATABASE:
+
+> db.student.update({"college":"ABC college"},{$set:{"college":"GTNcollege"}});
+> db.student.findOne({"name":"Malathi"});
+> db.student.findOne({"name":"malini"});
+> db.student.update({"name":"malini"},{$unset:{"extra_curriclr":"dance"}});
+> db.student.findOne({"name":"malini"});
+
+5. DELETING THE COLLECTIONS FROM THE DATABASE:
+
+> db.student.deleteOne({"name":"malini"});
+> db.student.find().pretty();
