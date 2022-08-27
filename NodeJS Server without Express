@@ -1,0 +1,29 @@
+step:1 new folder create file exploer
+step 2:open vs code right side click (file) then (open folder)
+step 3:create (new text file) demo.js then paste this code
+---------------------------------------------------------------------------------
+
+var http = require('http');
+var ct=require('./demomodule');
+http.createServer(function (req, res) {
+res.writeHead(200, {'Content-Type': 'text/html'});
+res.write("Total:"+ct.caltotal(50,50,50,50,50));
+res.write("\t\t\t Average:"+ct.calavg());
+res.end();
+}).listen(3000);
+
+----------------------------------------------------------------------------------
+step 4:create (new text file) demomodule.js then paste this below code
+-----------------------------------------------------------------------------------
+var t;
+exports.caltotal=function(a,b,c,d,e){
+t=a+b+c+d+e;
+return t;
+};
+exports.calavg=function(){
+return t/5;
+};
+--------------------------------------------------------------------------------------------
+next open terminal type command (node demo.js)
+incase output not display copy below code then open browser paste type address
+http://localhost:3000/
