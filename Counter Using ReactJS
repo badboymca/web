@@ -32,20 +32,19 @@ return(
 export default App;
 
 --------------------------------------------------------------------------------------------
-REplace the code(App.cs)
+REplace the code(App.css)
 
-
-body{
-background: #009393;
-}
-.App {
-text-align: center;
-margin-top: 150px;
-background-color: aliceblue;
-}
-button{
-font-size: 20px;
-padding: 15px 32px;
-margin
-}
+ body{
+    background: #009393;
+    }
+    .App {
+    text-align: center;
+    margin-top: 150px;
+    background-color: aliceblue;
+    }
+    button{
+    font-size: 20px;
+    padding: 15px 32px;
+    margin-left: 8px;
+    }
 ----------------------------------------------------------------------------------------
