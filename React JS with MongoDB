@@ -1,0 +1,145 @@
+===============================================React JS with MongoDB=========================================================================
+install requirements
+mongo db compass
+vscode
+-------------------------------------------------------------------------------------------------------------------
+step1:create your folder (mongo) on your file exploer
+
+2:open your vs code then click left side (file) open folder select (mongo folder)
+
+3:now open new terminal for following using commands
+
+4:>npx create-react-app frontend    //(note:execution after using this below comments)
+
+>mkdir backend
+
+>cd backend
+
+>npm init     //(this comment execution press enter only after coming (yes/no) show press y)
+
+>npm i express
+
+>npm i cors
+
+5: now click leftside (backend) select after (new file) create (App.js)
+
+6: next previous coding removing after below copy this code and go to paste (App.js and save
+
+const express = require('express');
+const cors = require('cors');
+const app = express();
+var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
+var url="mongodb://localhost:27017/?readPreference=primary&appName=demo";
+//in the above line you will change your mongodb url
+app.use(cors());
+app.use(bodyParser.json());
+app.post('/address', (req, res) => {
+MongoClient.connect(url, function(err, db) {
+if (err) throw err;
+var dbo = db.db("user");
+console.log("re",req.body)
+var myobj = { name: req.body.name, address: req.body.address };// db
+dbo.collection("login").insertOne(myobj, function(err, result) {
+if (err) throw err;
+console.log("1 document inserted");
+db.close();
+if (err) {
+// throw err;
+return res.status(400).json({
+status: false,
+description: "400 bad request"
+})
+}
+else {
+return res.status(200).json({
+status: true,
+description: result
+})
+}
+});
+})
+})
+app.listen(8090, () => console.log('Assessment1 api runs on http://localhost:8090/')); 
+
+7:Then choose (frontend) select after (src file) and click (App.js)
+
+8: After previous code removing and below copy and go to paste this code (App.js) save
+
+import React from 'react'
+import { useState } from 'react'
+function App() {
+const [name,setname]=useState("")
+const [password,setpassword]=useState("")
+function Handle(){
+console.log("data",name,password) ;
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+var raw = JSON.stringify({
+name:name,
+address:password
+});
+var requestOptions = {
+method: 'POST',
+headers: myHeaders,
+body: raw,
+redirect: 'follow'
+};
+fetch("http://localhost:8090/address", requestOptions)
+.then(response => response.json())
+.then(result => {
+console.log("res", result);
+if (result.status === true) {
+alert("register succefully!")
+}
+else {
+alert("your are not register sucess")
+}
+})
+.catch(function(error){
+console.log("siginerror",error)
+})
+}
+return (
+<div className='App'>
+<input placeholder='email' onChange={(e)=>setname(e.target.value)} />
+<input placeholder='password'
+onChange={(e)=>setpassword(e.target.value)}/>
+<button onClick={Handle}>submit</button>
+</div>
+)
+}
+export default App
+
+---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------MONGO DB COMPASS PROCESS------------------------------------------------------\
+1:NOW open (Mongodb compass)
+
+2:New Connection -> Advanced connection click after choose advance now showing many option
+
+3:click only (PRIMARY) then kila paruda URI OPTIONS irukum anga poeai (SelectKey) press Panni scroll panni kadasiya poo anga oru
+(appName)irukum select panniko.
+
+4:athu pakathula value irukum atha click panni (demo) type panni mela poo anga oru localhost irukum atha copy pannido connect kudo 
+
+5:connect click pannadhuku aparam kila (createdatabase) click panni anga (Database Name: user) (Login Name: login)type panni mudichru
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------NOW VSCODE TIME------------------------------------------------------------------------
+1:now vscode la poo anga (backend) choose panni (app.js) poeai intha url paste pannu avalatha mudichu
+2:ipo backend (App.js) iruthu new terminal open panni kila irukura cmd type pannu rasa
+>cd backend
+>node App.js //now assessment localhost show not other wise install this command > npm i mongodb
+----------------------------------------------------------------------------------------------------------------------------------------
+1:Now Click previous terminal type this commands
+
+>cd..
+>cd frontend
+>npm start
+---------------------------------------------------------------------------------------------------------------------------------------
+finall steps:
+now automatic open browser type any name and password then click submit option now show (register sucessfully)incase not show mistake buddy
+-------------------------------------------------------------------------------------------------------------------------------------------
+mongo db compass poeai (user) kila (login) click panni output pakanum eallana refresh tharanum eathum varalana amaithiya kalambipoeairu tata
+--------------------------------------------------------END---------------------------------------------------------------------------------  
+ 
